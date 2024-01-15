@@ -1,0 +1,17 @@
+Yearly Growth Rate =
+CALCULATE(
+    SUM(Sales[Amount]), 
+    SAMEPERIODLASTYEAR('Date'[Date])
+) / SUM(Sales[Amount]) - 1
+
+Customer Segment = 
+SWITCH(
+    TRUE(),
+    [Total Sales] < 10000, "Small",
+    [Total Sales] >= 10000 && [Total Sales] < 50000, "Medium",
+    [Total Sales] >= 50000, "Large",
+    "Other"
+)
+
+Average Sale = 
+AVERAGE(Sales[Amount])
